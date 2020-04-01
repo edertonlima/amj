@@ -1,0 +1,171 @@
+.slide {
+	width: 100%;
+	height: $hSlide;
+
+	&:before, &:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		height: $hSlide;
+		background: rgb(0,0,0);
+		width: 140px;
+		z-index: 10;
+	}
+
+	&:before {
+		background: linear-gradient(270deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,1) 100%);
+		left: 0;
+	}
+
+	&:after {
+		background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,1) 100%);
+		right: 0;
+	}
+
+	.carousel, .carousel-inner, .carousel-item {
+		width: 100%;
+		height: $hSlide;
+	}
+
+	.carousel-item {
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	// CONTROLES
+	.carousel-control-next, .carousel-control-prev {
+		width: 56px;
+		height: 189px;
+		opacity: .5;
+		position: absolute;
+		z-index: 11;
+		top: 50%;
+		margin-top: -94.5px;
+		@include animacao;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	.carousel-control-next {
+		right: 60px;
+		background-image: url('../images/arrow-slide-next.png');
+	}
+
+	.carousel-control-prev {
+		left: 60px;
+		background-image: url('../images/arrow-slide-prev.png');
+	}
+
+	.carousel-indicators {
+		display: none;
+		bottom: 20px;
+		
+		li {
+			width: 20px;
+			height: 20px;
+			margin: 0 10px;
+			border-radius: 50%;
+			box-shadow: 1px;
+			cursor: pointer;
+			//box-shadow: 1px 1px 2px #333;
+			background: $bgclaro;
+
+			&.active {
+				background: $cor1;
+			}
+		}
+	}
+
+	span {
+		color: #ffffff;
+		display: block;
+		margin: 0 auto;
+		width: 80%;
+		max-width: 800px;
+
+		&.titulo {
+			color: $cor1;
+			font-weight: $extra-bold;
+			font-size: 3rem;
+			line-height: 2.8rem;
+		}
+		&.texto {
+			max-width: 400px;
+			font-size: 1.8rem;
+			font-weight: $regular;
+			line-height: 2rem;
+			margin-top: 10px;
+		}
+		&.nome {
+			margin-top: 50px;
+			text-transform: uppercase;
+			font-size: .75rem;
+			line-height: 1rem;
+			font-weight: $bold;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.scroll_body {
+	.slide {
+		height: 100vh;
+		.carousel, .carousel-inner, .carousel-item {
+			height: 100vh;
+		}
+	}
+}
+
+
+
+.owl-carousel {
+	// CONTROLES
+
+	.owl-dots {
+		bottom: 20px;
+		position: absolute;
+		z-index: 15;
+		width: 100%;
+		text-align: center;
+		
+		.owl-dot {
+			width: 20px;
+			height: 20px;
+			margin: 0 10px;
+			border-radius: 50%;
+			box-shadow: 1px;
+			cursor: pointer;
+			box-shadow: 1px 1px 2px #333;
+			background: $bgclaro;
+
+			span {
+				display: none;
+			}
+
+			&.active {
+				background: $cor1;
+			}
+		}
+	}
+
+	&.owl-nav-off {
+		.owl-nav {
+			display: none;
+		}
+	}
+}
+
+.post-type-archive-receitas {
+	.slide {
+		.carousel-indicators {
+			li {
+				&.active {
+					background: $cor2;
+				}
+			}
+		}
+	}
+}
